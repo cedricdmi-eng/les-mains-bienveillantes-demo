@@ -1,14 +1,11 @@
-const toggle = document.querySelector('.mobile-toggle');
-const nav = document.querySelector('.main-nav');
 
-toggle?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+const btn=document.querySelector('.menu-btn');
+const menu=document.querySelector('.menu');
+btn?.addEventListener('click',()=>{
+  const open=menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open?'true':'false');
 });
-
-document.querySelectorAll('.main-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
-  });
-});
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{
+  menu.classList.remove('open');
+  btn?.setAttribute('aria-expanded','false');
+}));
